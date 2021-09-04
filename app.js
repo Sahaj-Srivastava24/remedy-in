@@ -27,9 +27,13 @@ app.use(auth(config));
 // req.isAuthenticated is provided from the auth router
 var indexRouter = require('./routes/index')
 var profileRouter = require('./routes/profile')
+var hospitalRouter = require('./routes/hospitals')
+var covidRouter = require('./routes/covidapi')
 
-app.get('/',indexRouter);
-app.get('/profile',profileRouter);
+app.use('/',indexRouter);
+app.use('/profile',profileRouter);
+app.use('/',hospitalRouter);
+app.use('/covid-data',covidRouter);
 
 app.listen(3000, () => {
 
