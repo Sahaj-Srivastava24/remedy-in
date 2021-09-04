@@ -3,8 +3,7 @@ const router = express.Router ()
 
 router.get('/',(req, res) => {
   // res.send()
-  const authen = req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out'
-  res.render('./home', {isAuth: authen})
+  res.render('./home', {isAuth: req.oidc.isAuthenticated()})
 });
 
 module.exports = router
